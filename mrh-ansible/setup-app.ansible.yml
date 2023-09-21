@@ -1,0 +1,6 @@
+# setup-app.ansible.yml
+---
+- hosts: webservers
+  become: true
+  roles:
+    - webservers

@@ -1,0 +1,3 @@
+[submodule "wordpress-ansible"]
+	path = wordpress-ansible
+	url = https://github.com/omgsian/ansible-wordpress.git

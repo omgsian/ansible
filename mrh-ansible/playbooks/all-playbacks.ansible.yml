@@ -1,0 +1,7 @@
+# all-playbacks.ansible.yml
+---
+- import_playbook: yum-update.ansible.yml
+- import_playbook: install-services.ansible.yml
+- import_playbook: ../setup-app.ansible.yml
+- import_playbook: setup-lb.ansible.yml
+- import_playbook: check-status.ansible.yml
