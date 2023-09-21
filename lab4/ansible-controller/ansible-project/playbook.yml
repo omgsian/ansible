@@ -1,0 +1,30 @@
+---
+- name: Install Apache web server
+  hosts: dbservers
+  become: true
+
+
+  pre_tasks: 
+    - name: Install postgresql
+        apt:
+          name: postgresql
+          state: latest
+  tasks:
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+    - name: Enabled mod_rewrite
+      apache2_module: name=rewrite state=present
+      notify: Restart apache2
+    - name: Enable postgresql service
+      ansible.builtin.service:
+        name: postgresql
+        state: started
+        enabled: yes
+  handlers:
+    - name: Restart apache2
+      service:
+        name: apache2
+        state: restarted
