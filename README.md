@@ -1,1 +1,1 @@
-test - Ansible practice projects
+ Ansible practice projects
